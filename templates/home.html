@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}      <!-- (inherited from base template) -->
+
+{% block title %}Homepage{% endblock %}
+{% block content %}
+{{ super() }}
+'<h1>Hey {{ name }},  You are on the home page . Nice !</h1>'
+
+
+<h1>Database Results</h1>
+{% for item in results %}
+<h2>ID: {{ item.id }} Name: {{ item.name }} Location: {{ item.location }}</h2>
+{% endfor %}
+
+
+{% if display %}
+<h2>This is being presented !</h2>
+{% else %}
+<h2>This is hidden. Unless display is = False</h2>
+{% endif %}
+
+
+
+{% for x in myList %}
+<h3>{{ x }}</h3>
+{% endfor %}
+
+{% for x in dictList %}
+<h4>{{ x.name }}</h4>
+{% endfor %} 
+
+
+<img src="{{ url_for('static', filename='images/bridge water mystic.jpg') }}">
+
+{% include 'include.html' %}
+
+{% endblock %}
